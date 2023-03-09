@@ -27,26 +27,24 @@ const Modal = ({
     }
     guardarGasto({ nombre, cantidad, categoria, id, fecha });
   };
-  
+
   useEffect(() => {
-    if(Object.keys(gastoEditar).length>0){
+    if (Object.keys(gastoEditar).length > 0) {
       setNombre(gastoEditar.nombre);
       setCantidad(gastoEditar.cantidad);
       setCategoria(gastoEditar.categoria);
-      setId(gastoEditar.id)
-      setFecha(gastoEditar.fecha)
+      setId(gastoEditar.id);
+      setFecha(gastoEditar.fecha);
     }
-  }, [])
-  
+  }, []);
+
   const ocultarModal = () => {
     setAnimarModal(false);
-    setGastoEditar({})
+    setGastoEditar({});
     setTimeout(() => {
       setModal(false);
     }, 500);
   };
-
-
 
   return (
     <div className="modal">
@@ -57,7 +55,7 @@ const Modal = ({
         onSubmit={handlesubmit}
         className={`formulario ${animarModal ? "animar" : "cerrar"}`}
       >
-        <legend>{gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
+        <legend>{gastoEditar.nombre ? "Editar Gasto" : "Nuevo Gasto"}</legend>
         {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
         <div className="campo">
           <label htmlFor="nombre">Nombre gasto</label>
@@ -96,7 +94,10 @@ const Modal = ({
             <option value="suscripciones">Suscripciones</option>
           </select>
         </div>
-        <input type="submit" value={gastoEditar.nombre ? 'Guardar Cambios' : 'Añadir Gasto'} />
+        <input
+          type="submit"
+          value={gastoEditar.nombre ? "Guardar Cambios" : "Añadir Gasto"}
+        />
       </form>
     </div>
   );

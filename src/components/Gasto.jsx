@@ -28,22 +28,18 @@ const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
     suscripciones: IconoSuscripciones,
   };
 
-  const leadingActions= () =>(
+  const leadingActions = () => (
     <LeadingActions>
-      <SwipeAction onClick={() => setGastoEditar(gasto)}>
-        Editar
-      </SwipeAction>
+      <SwipeAction onClick={() => setGastoEditar(gasto)}>Editar</SwipeAction>
     </LeadingActions>
-  )
-  const trailingActions= ()=>(
+  );
+  const trailingActions = () => (
     <TrailingActions>
-      <SwipeAction 
-      destructive={true}
-      onClick={() => eliminarGasto(id)}>
+      <SwipeAction destructive={true} onClick={() => eliminarGasto(id)}>
         Eliminar
       </SwipeAction>
-  </TrailingActions>
-    )
+    </TrailingActions>
+  );
   return (
     <SwipeableList>
       <SwipeableListItem
