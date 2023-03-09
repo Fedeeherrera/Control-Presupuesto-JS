@@ -16,7 +16,7 @@ import IconoOcio from "../img/icono_ocio.svg";
 import IconoSalud from "../img/icono_salud.svg";
 import IconoSuscripciones from "../img/icono_suscripciones.svg";
 
-const Gasto = ({ gasto, setGastoEditar }) => {
+const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
   const { nombre, cantidad, categoria, id, fecha } = gasto;
   const diccionarioIconos = {
     ahorro: IconoAhorro,
@@ -37,7 +37,9 @@ const Gasto = ({ gasto, setGastoEditar }) => {
   )
   const trailingActions= ()=>(
     <TrailingActions>
-      <SwipeAction onClick={() => Console.log("Editar")}>
+      <SwipeAction 
+      destructive={true}
+      onClick={() => eliminarGasto(id)}>
         Eliminar
       </SwipeAction>
   </TrailingActions>
